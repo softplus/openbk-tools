@@ -72,7 +72,7 @@ wifi_logs.sh IPADDRESS
 Uploads the current firmware via wifi.
 Reboots the device afterwards and checks for availability.
 
-Expects firmware at: $SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_1.0.0.rbl
+Expects firmware at: SCRIPT_DIR/../platforms/{PLATFORM}/{PLATFORM}_os/tools/generate/Open{PLATFORM^^}_App_1.0.0.rbl
 
 ```bash
 ota.sh IPADDRESS PLATFORM
@@ -106,7 +106,7 @@ serial_monitor.sh PORTNAME
 Uploads the current firmware to the device with the serial port.
 Watches out for starting memory address.
 
-Expects firmware at: $SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_QIO_1.0.0.bin
+Expects firmware at: SCRIPT_DIR/../platforms/{PLATFORM}/{PLATFORM}_os/tools/generate/Open{PLATFORM^^}_App_QIO_1.0.0.bin
 
 
 ```bash
