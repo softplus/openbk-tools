@@ -64,7 +64,7 @@ Saves a local version of the logs to your /tmp-dir.
 
 ```bash
 wifi_logs.sh IPADDRESS
-# eg:  wifi_logs.sh 192.168.4.1
+# eg:  openbk-tools/wifi_logs.sh 192.168.4.1
 ```
 
 ### ota - upload firmware via wifi
@@ -72,9 +72,11 @@ wifi_logs.sh IPADDRESS
 Uploads the current firmware via wifi.
 Reboots the device afterwards and checks for availability.
 
+Expects firmware at: $SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_1.0.0.rbl
+
 ```bash
 ota.sh IPADDRESS PLATFORM
-# Eg:  ota.sh 192.168.4.1 bk7231n
+# Eg:  openbk-tools/ota.sh 192.168.4.1 bk7231n
 ```
 
 ### scanwifi - shows open access points, connects as needed
@@ -84,10 +86,11 @@ Updates automatically in the terminal window.
 Runs `nmcli dev wifi`.
 
 ```bash
-scanwifi.sh
+openbk-tools/scanwifi.sh
 ```
 
 ## Serial port tools
+
 ### serial_monitor - monitor serial port for logs
 
 Retries serial port automatically.
@@ -95,7 +98,7 @@ Pauses when uploading firmware with flash_serial.sh.
 
 ```bash
 serial_monitor.sh PORTNAME
-# eg:  serial_monitor.sh /dev/ttyUSB1
+# eg:  openbk-tools/serial_monitor.sh /dev/ttyUSB1
 ```
 
 ### flash_serial - upload firmware via serial
@@ -103,7 +106,10 @@ serial_monitor.sh PORTNAME
 Uploads the current firmware to the device with the serial port.
 Watches out for starting memory address.
 
+Expects firmware at: $SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_QIO_1.0.0.bin
+
+
 ```bash
 flash_serial.sh PORTNAME PLATFORM
-# Eg:  flash_serial.sh /dev/ttyUSB1 bk7231n
+# Eg:  openbk-tools/flash_serial.sh /dev/ttyUSB1 bk7231n
 ```
