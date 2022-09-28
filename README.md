@@ -1,6 +1,14 @@
 # openbk-tools
 
-Clone into a directory within your main OpenBK firmware. 
+Clone into a directory within your main OpenBK firmware.
+Made & tested in Ubuntu 20.X, YMMV.
+Automatically activates/deactivates .venv where Python is used.
+
+Made for https://github.com/openshwprojects/OpenBK7231T_App
+
+Tested with BK7231N, BK7231T chips. 
+
+[MIT License](LICENSE) / (c) John Mueller
 
 ## Setup
 
@@ -13,6 +21,7 @@ chmod +x *.sh
 git clone https://github.com/openshwprojects/OpenBK7231T_App apps/OpenBK7231N_App
 git clone https://github.com/OpenBekenIOT/hid_download_py
 git clone https://github.com/softplus/openbk-tools
+
 # setup python stuff
 cd openbk-tools
 chmod +x *.sh

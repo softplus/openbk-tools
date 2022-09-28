@@ -25,7 +25,7 @@ TOOLNAME=$SCRIPT_DIR/../hid_download_py/uartprogram
 
 FLASHOPT=
 if [ $PLATFORM == "bk7231n" ]; then
-    FLASHOPT="$FLASHOPT -s 0x0" 
+    FLASHOPT="$FLASHOPT -s 0x0 -u" 
 fi
 
 if [[ ! -e "$DEVICE" ]]; then
@@ -52,7 +52,7 @@ fi
 echo "Flashing $FILENAME to $DEVICE ..."
 touch ${TMPDIR:-/tmp/}openbk-tools-pause.tmp
 sleep 1
-python $TOOLNAME $FLASHOPT -u -w "$FILENAME" -d "$DEVICE"
+python $TOOLNAME $FLASHOPT -w "$FILENAME" -d "$DEVICE"
 sleep 1
 rm ${TMPDIR:-/tmp/}openbk-tools-pause.tmp
 
