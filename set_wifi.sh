@@ -8,13 +8,14 @@
 # eg:
 #   openbk-tools/set_wifi.sh 192.168.123.234 "Nice+AP" "12345"
 #   (values must be URL-safe-encoded)
+#   Loads values from _SECRETS.sh if defined (listed in .gitignore).
 #
 # MIT License / (C) johnmu / https://github.com/softplus/openbk-tools
 # 
 
 IP=${1:-"192.168.4.1"}
 ROOT_URL=http://$IP
-AP=${2:-"Fancy+AP"}
+AP=${2:-"Accesspoint-SSID"}
 PASS=${3:-"12345"}
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )

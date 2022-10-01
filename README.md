@@ -79,7 +79,7 @@ ota.sh IPADDRESS PLATFORM
 # Eg:  openbk-tools/ota.sh 192.168.4.1 bk7231n
 ```
 
-### scanwifi - shows open access points, connects as needed
+### scanwifi - shows open access-points
 
 Nothing fancy, just easier than manually. 
 Updates automatically in the terminal window.
@@ -112,4 +112,27 @@ Expects firmware at: SCRIPT_DIR/../platforms/{PLATFORM}/{PLATFORM}_os/tools/gene
 ```bash
 flash_serial.sh PORTNAME PLATFORM
 # Eg:  openbk-tools/flash_serial.sh /dev/ttyUSB1 bk7231n
+```
+
+## Change settings / make actions
+
+### set_reboot - reboot device
+
+Sends reboot request to REST API. Device should reboot in 3 seconds.
+
+```bash
+set_reboot.sh IPADDRESS
+# eg: openbk-tools/set_reboot.sh 192.168.4.1
+```
+
+### set_wifi - set WIFI AP & password
+
+Sets the device WIFI accesspoint & password.
+Can use the `_SECRETS.sh` file to make it easier for you to set.
+Create your own `_SECRETS.sh` file by copying `_SECRETS_EXAMPLE.sh`.
+
+```bash
+set_wifi.sh IPADDRESS APNAME PASSWORD
+# eg: openbk-tools/set_wifi.sh 192.168.4.1 "My-AP" "12345"
+#  or openbk-tools/set_wifi.sh 192.168.4.1 # use settings file
 ```
