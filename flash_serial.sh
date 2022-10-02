@@ -11,11 +11,13 @@
 # eg:
 #   openbk-tools/flash_serial.sh /dev/ttyUSB1 bk7231n
 #
+# Uses uartprogram from https://github.com/OpenBekenIOT/hid_download_py
+#
 # MIT License / (C) johnmu / https://github.com/softplus/openbk-tools
 # 
 
 DEVICE=${1:-"/dev/ttyUSB1"}
-PLATFORM=${2:-"bk7231n"}
+PLATFORM=${2:-"x"}
 PLATFORM=${PLATFORM,,}
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 FILENAME=$SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_QIO_1.0.0.bin
@@ -26,6 +28,9 @@ TOOLNAME=$SCRIPT_DIR/../hid_download_py/uartprogram
 FLASHOPT=
 if [ $PLATFORM == "bk7231n" ]; then
     FLASHOPT="$FLASHOPT -s 0x0 -u" 
+fi
+if [ $PLATFORM == "bk7231t" ]; then
+    FLASHOPT="$FLASHOPT -s 0x11000" 
 fi
 
 if [[ ! -e "$DEVICE" ]]; then

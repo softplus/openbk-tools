@@ -114,6 +114,20 @@ flash_serial.sh PORTNAME PLATFORM
 # Eg:  openbk-tools/flash_serial.sh /dev/ttyUSB1 bk7231n
 ```
 
+### read_flash - download flash binary via serial
+
+Downloads the device's flash contents with the serial port.
+Saves the full downloaded file as _data, creates a _full version,
+saves partitions based on best knowledge.
+Tested for BK7231N, BK7231T.
+
+Uses `hid_download_py/uartserial`.
+
+```bash
+read_flash.sh PORTNAME PLATFORM
+# Eg:  openbk-tools/read_flash.sh /dev/ttyUSB1 bk7231n
+```
+
 ## Change settings / make actions
 
 ### set_reboot - reboot device
