@@ -20,17 +20,20 @@ DEVICE=${1:-"/dev/ttyUSB1"}
 PLATFORM=${2:-"x"}
 PLATFORM=${PLATFORM,,}
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-FILENAME=$SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate/Open${PLATFORM^^}_App_QIO_1.0.0.bin
+FILEPATH=$SCRIPT_DIR/../platforms/${PLATFORM}/${PLATFORM}_os/tools/generate
 #   n uartprogram -s 0x0 -u -w ../platforms/bk7231n/bk7231n_os/tools/generate/OpenBK7231N_App_QIO_1.0.0.bin -d /dev/ttyUSB0
 
 TOOLNAME=$SCRIPT_DIR/../hid_download_py/uartprogram
 
 FLASHOPT=
+FILENAME=
 if [ $PLATFORM == "bk7231n" ]; then
     FLASHOPT="$FLASHOPT -s 0x0 -u" 
+    FILENAME=${FILEPATH}/Open${PLATFORM^^}_App_QIO_1.0.0.bin
 fi
 if [ $PLATFORM == "bk7231t" ]; then
     FLASHOPT="$FLASHOPT -s 0x11000" 
+    FILENAME=${FILEPATH}/Open${PLATFORM^^}_App_UA_1.0.0.bin
 fi
 
 if [[ ! -e "$DEVICE" ]]; then
